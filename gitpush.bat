@@ -1,15 +1,12 @@
-@echo off
+ECHO OFF
 
-For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET gitpushdate=%%c-%%a-%%b)
-For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (SET gitpushtime=%%a%%b)
+SET currentdirectory=%~dp0
 
-SET origindirectory=%~dp0
+FOR %%a IN ("%currentdirectory:~0,-1%") DO SET parentcurrentdirectory=%%~dpa
 
-FOR %%a IN ("%origindirectory:~0,-1%") DO SET parentorigindirectory=%%~dpa
+set source=%currentdirectory%build\wwwroot
 
-set source=%origindirectory%build\wwwroot
-
-set destination=%parentorigindirectory%altandenter.github.io
+set destination=%parentcurrentdirectory%altandenter.github.io
 
 dotnet publish --configuration Release --output build
 
@@ -19,12 +16,13 @@ cd %destination%
 
 git add .
 
-git commit -m "commit-%gitpushdate%-%gitpushtime%"
+For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET date=%%c-%%a-%%b)
+For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (SET time=%%a%%b)
+
+git commit -m "commit-%date%-%time%"
 
 git push
 
-cd %origindirectory%
+cd %currentdirectory%
 
 exit /b
-
-C:\_Data\Blazor\AltAndEnter\build\wwwroot
