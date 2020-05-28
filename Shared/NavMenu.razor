@@ -1,42 +1,47 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Alt & Enter</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+﻿@inherits  NavMenuBase
+@inject ILanguageContainerService loc 
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" @onclick="ToggleNavMenu" data-toggle="collapse" 
+            data-target="#navbarTogglerAltAndEnter" aria-controls="navbarTogglerAltAndEnter" 
+                aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-</div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="blog">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Blog
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-    </ul>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
+    <a class="navbar-brand" href="">ALT & ENTER</a>
+    <div class="@NavMenuCssClass navbar-collapse" id="navbarTogglerAltAndEnter" @onclick="ToggleNavMenu">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    @loc.Keys["Home"]
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="blog">
+                    @loc.Keys["Blog"]
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="counter">
+                    @loc.Keys["Counter"]
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="fetchdata">
+                    @loc.Keys["FetchData"]
+                </NavLink>
+            </li>
+        </ul>
+        <ul class="navbar-nav form-inline my-2 my-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdownId" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@SelectedLanguage</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        @foreach (var language in Languages)
+                        {
+                            <a class="dropdown-item" href="#" @onclick="@(() => ChangeLanguageAsync(language.CultureCode))">@language.Display</a>
+                        }
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

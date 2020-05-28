@@ -1,18 +1,18 @@
 ECHO OFF
 
-SET currentdirectory=%~dp0
+SET CurrentDirectory=%~dp0
 
-FOR %%a IN ("%currentdirectory:~0,-1%") DO SET parentcurrentdirectory=%%~dpa
+FOR %%a IN ("%CurrentDirectory:~0,-1%") DO SET ParentCurrentDirectory=%%~dpa
 
-set source=%currentdirectory%build\wwwroot
+set DeploymentFilesDirectory=%CurrentDirectory%build\wwwroot
 
-set destination=%parentcurrentdirectory%altandenter.github.io
+set GitHubIoDirectory=%ParentCurrentDirectory%altandenter.github.io
 
 dotnet publish --configuration Release --output build
 
-robocopy "%source%" "%destination%" /e /xf "%source%"\index.html
+robocopy "%DeploymentFilesDirectory%" "%GitHubIoDirectory%" /e /xf "%DeploymentFilesDirectory%"\index.html
 
-cd %destination%
+cd %GitHubIoDirectory%
 
 git add .
 
@@ -23,6 +23,6 @@ git commit -m "commit-%date%-%time%"
 
 git push
 
-cd %currentdirectory%
+cd %CurrentDirectory%
 
 exit /b

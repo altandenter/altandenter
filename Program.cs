@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using AKSoftware.Localization.MultiLanguages;
+using System.Reflection;
+using Blazored.LocalStorage;
 
 namespace AltAndEnter
 {
@@ -17,8 +20,12 @@ namespace AltAndEnter
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
+            builder.Services.AddLangaugeContainer(Assembly.GetExecutingAssembly());
+
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+            builder.Services.AddBlazoredLocalStorage();
+            
             await builder.Build().RunAsync();
         }
     }

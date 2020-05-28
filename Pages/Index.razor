@@ -1,9 +1,11 @@
 ﻿@page "/"
+@inject ILanguageContainerService loc 
 
-<h1>Hello, World!</h1>
+<h1>@loc.Keys["HelloWorld"] </h1>
 
-Welcome to your new app.
+@loc.Keys["Welcome"]
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<SurveyPrompt Title="@loc.Keys["Question"]" />
+
 
 
