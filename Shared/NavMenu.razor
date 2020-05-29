@@ -30,16 +30,21 @@
                     @loc.Keys["FetchData"]
                 </NavLink>
             </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="leafletjs">
+                    LeafletJs
+                </NavLink>
+            </li>
         </ul>
         <ul class="navbar-nav form-inline my-2 my-md-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdownId" 
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@SelectedLanguage</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        @foreach (var language in Languages)
-                        {
-                            <a class="dropdown-item" href="#" @onclick="@(() => ChangeLanguageAsync(language.CultureCode))">@language.Display</a>
-                        }
+                    @foreach (var language in Languages)
+                    {
+                        <a class="dropdown-item" href="#" @onclick="@(() => ChangeLanguageAsync(language.CultureCode))">@language.Display</a>
+                    }
                 </div>
             </li>
         </ul>
