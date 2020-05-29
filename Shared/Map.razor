@@ -5,15 +5,18 @@
 
 @code {
     string elementId = $"map-{Guid.NewGuid().ToString("D")}";
+    string companyName  = "<b>Microsoft Corporation</b></br>";
+    string address  = "1 Microsoft Way, Redmond, WA 98052, USA";
+    double xCoordinate = 47.6393779;
+    double yCoordinate = -122.1370141;
     
     [Parameter] public double Zoom { get; set; }
-    [Parameter] public List<Marker> Markers { get; set; }
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         await JSRuntime.InvokeVoidAsync(
-            "deliveryMap.showOrUpdate",
+            "myAddress.showPopup",
             elementId,
-            Markers);
+            companyName, address, xCoordinate, yCoordinate );
     }
 }
