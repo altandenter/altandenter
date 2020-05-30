@@ -1,4 +1,4 @@
-ECHO OFF
+@ECHO OFF
 
 SET CurrentDirectory=%~dp0
 
