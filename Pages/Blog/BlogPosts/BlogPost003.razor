@@ -1,0 +1,53 @@
+@page "/blogpost003"
+
+<BlogPostTemplate Title="@Constants.Title.BlogPost003">
+    <BlogPost>
+        <p>1. Navigate to <a href="https://leafletjs.com/download.html" target="_blank">https://leafletjs.com/download.html</a> and download the latest stable version. </p>
+        <p>2. Create a new folder in the wwwroot folder of your application and extract the downloaded files in it. </p>
+        <p>3. Add the following statements to the head of the index.html file.</p>
+        <pre>
+            <code>
+        &lt;link rel="stylesheet" href="leaflet/leaflet.css" /&gt;
+        &lt;script src="leaflet/myAddress.js"&gt;&lt;/script&gt;
+        &lt;script src="leaflet/leaflet.js"&gt;&lt;/script&gt; 
+            </code>
+        </pre>
+        <p>4. In the wwwroot/leaflet folder create a file myAddress.js. Paste in the code below.</p>
+        <pre>
+            <code>
+        (function () {
+            var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+            var tileAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
+            window.myAddress = {
+                showPopup: function (elementId, companyName, address, latitude, longitude, zoom) {
+                    var elem = document.getElementById(elementId);
+                    if (!elem) {
+                        throw new Error('No element with ID ' + elementId);
+                    }
+                    if (!elem.map) {
+                        elem.map = L.map(elementId);
+                        elem.map.setView([latitude, longitude], zoom);
+                        elem.map.addedMarkers = [];
+                        L.tileLayer(tileUrl, { attribution: tileAttribution }).addTo(elem.map);
+                    }
+                    var map = elem.map;
+                    L.marker([latitude, longitude]).addTo(map).bindPopup('&lt;b&gt;' + companyName + '&lt;/b&gt;&lt;br&gt;' + address).openPopup();
+                }
+            };
+        })();
+            </code>
+        </pre>
+        <p>5. Create a Map.razor component in the Shared folder with the following code.</p>
+        <img src="img/map.png" style="height:auto; width:auto;" >
+        <br>
+        <p>6. Call the Map.razor component from another component.</p>
+        <pre>
+            <code>
+        &lt;Map Zoom="13" CompanyName="Microsoft Corporation" Address="1 Microsoft Way, Redmond, WA 98052, USA" Latitude="47.64244156" Longitude="-122.13703483" /&gt;
+            </code>
+        </pre>
+        <p>7. This should be the result.</p>
+        <Map Zoom="13" CompanyName="Microsoft Corporation" Address="1 Microsoft Way, Redmond, WA 98052, USA" Latitude="47.64244156" Longitude="-122.13703483" />
+
+    </BlogPost>
+</BlogPostTemplate>
