@@ -10,7 +10,8 @@ set GitHubIoDirectory=%ParentCurrentDirectory%altandenter.github.io
 
 dotnet publish --configuration Release --output build
 
-robocopy "%DeploymentFilesDirectory%" "%GitHubIoDirectory%" /e /xf "%DeploymentFilesDirectory%"\index.html
+REM robocopy "%DeploymentFilesDirectory%" "%GitHubIoDirectory%" /e /xf "%DeploymentFilesDirectory%"\index.html
+robocopy "%DeploymentFilesDirectory%" "%GitHubIoDirectory%" /e
 
 cd %GitHubIoDirectory%
 
