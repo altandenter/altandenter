@@ -2,34 +2,29 @@
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-<BlogPostTemplate Title="@Constants.Title.BlogPost001">
+<BlogPostTemplate Title="@Constants.Title.BlogPost001" UrlPart="blogpost001" PageIdentifier="001" >
     <BlogPost>
       <p>1. Create your your-username.github.io repository on GitHub.</p>
       <p>2. In the repository settings go to the Github Pages section. Choose a Theme. Select Theme and commit changes.</p>
       <p>3. Clone the repository.</p>
       <p>4. Delete the index.md and _config.yml files.</p>
       <p>5. Open a terminal window and check your dotnet version. Should be greather or equal to 3.1.300.</p>
-      <pre><code>dotnet --version</code></pre>
+      <pre><code class="language-html">dotnet --version</code></pre>
       <p>6. In the parent directory of your-username.github.io directory, run the command below to create a new Blazor WebbAssembly App.</p>
-      <pre><code>dotnet new blazorwasm --output your-username --pwa</code></pre>
+      <pre><code class="language-html">dotnet new blazorwasm --output your-username --pwa</code></pre>
       <p>7. Add an empty .nojekyll file in the root of the repository.</p>
       <p>8. Add a .gitattributes file to the root of the repository with following content: * binary.</p>
       <p>9. Replace the index.html page with the contents of this <a href="https://github.com/altandenter/altandenter.github.io/blob/master/index.html" target="_blank">index.html</a> file.</p>
       <p>10. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/404.html" target="_blank">404.html Error</a> file.</p>
       <p>11. Change Directory into your-username directory and generate deployment files.</p>
-      <pre><code>dotnet publish --configuration Release --output build</code></pre>
+      <pre><code class="language-html">dotnet publish --configuration Release --output build</code></pre>
       <p>12. Copy the files from the build\wwwroot directory into your-username.github.io directory.</p>
       <p>13. Stage your changes.</p> 
-      <pre><code class="language-java">git add .</code></pre>
+      <pre><code class="language-html">git add .</code></pre>
       <p>14. Commit your changes.</p> 
-      <pre><code>git commit -m "initial-commit"</code></pre>
+      <pre><code class="language-html">git commit -m "initial-commit"</code></pre>
       <p>15. Push your changes.</p> 
-      <pre><code>git push</code></pre>
+      <pre><code class="language-html">git push</code></pre>
       <p>16. Open a browser and navigate to <a href="https://altandenter.github.io/">https://your-username.github.io/</a>.</p>
     </BlogPost>
 </BlogPostTemplate>
-
-<br>
-<br>
-
-<Disqus UrlPart="blogPost001" PageIdentifier="001"></Disqus>

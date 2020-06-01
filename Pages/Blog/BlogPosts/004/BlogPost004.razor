@@ -1,8 +1,7 @@
 @page "/blogpost004"
 @inject IJSRuntime _jsRuntime
 
-
-<BlogPostTemplate Title="@Constants.Title.BlogPost004">
+<BlogPostTemplate Title="@Constants.Title.BlogPost004" UrlPart="blogpost004" PageIdentifier="004" >
     <BlogPost>
         <p>1. Navigate to <a href="https://disqus.com/" target="_blank">DISQUS</a> and login or signup.</p>
         <p>2. Click on the GET STARTED button. Choose I want to install Disquss on my site.</p>
@@ -14,25 +13,12 @@
         <p>8. Inside the disqus folder add a file and name it disqus.js.</p>
         <p>9. Replace the contents of the diqus.js file with <a href="https://github.com/altandenter/altandenter/blob/master/Pages/Blog/BlogPosts/004/disqusjs.txt" target="_blank">this code</a>. </p>
         <p>10. In the head section of your index.html file add line below.</p>
-        <pre><code  class="language-html">&lt;script src="disqus/disqus.js"&gt;&lt;/script&gt;</code></pre>
-        <p>11. Create a Disqus.razor component in your Shared folder.</p>
-        <pre><code class="language-razor">
-            @using Microsoft.JSInterop
-            @inject IJSRuntime JSRuntime
-
-            &lt;div id="disqus_thread"&gt;&lt;/div&gt;
-
-            @code {
-                [Parameter] public string UrlPart { get; set; } = "defaultUrlPart";
-                [Parameter] public string PageIdentifier { get; set; } = "defaulPageIdentifier";
-                protected async override Task OnAfterRenderAsync(bool firstRender)
-                {
-                    await JSRuntime.InvokeVoidAsync(
-                        "disqus.show", "disqus_thread", UrlPart, PageIdentifier);
-                }   
-            }
-        </code></pre> 
+        <pre><code class="language-html">&lt;script src="disqus/disqus.js"&gt;&lt;/script&gt;</code></pre>
+        <p>11. Place the following code before your site's closing &lt;/body&gt; tag:</p>
+        <pre><code class="language-html">&lt;script  id="dsq-count-scr" src="//&lt;replace-with-the-obtained-disqus-code&gt;.com/count.js" async&gt;&lt;/script&gt;</code></pre>
+        <p>12. Create a Disqus.razor component in your Shared folder and copy paste  <a href="https://github.com/altandenter/altandenter/blob/master/Pages/Blog/BlogPosts/004/disqusrazor.txt" target="_blank">this code</a> </p>
+        <p>13. Call your the Disqus component from another razor page like this.</p>
+        <pre><code class="language-html">&lt;Disqus UrlPart="urlPart" PageIdentifier="yourPageIdentifier"&gt;&lt;/Disqus&gt;</code></pre>
     </BlogPost>
-
 </BlogPostTemplate>
 

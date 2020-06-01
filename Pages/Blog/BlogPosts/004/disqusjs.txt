@@ -9,7 +9,7 @@
 
             let d = document, s = d.createElement('script');
             // REPLACE <your-disqus-src-code> below with the code obtained from DISQUS  
-            s.src = '<your-disqus-src-code>/embed.js';
+            s.src = '<replace-with-obtained-disqus-code>/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         }

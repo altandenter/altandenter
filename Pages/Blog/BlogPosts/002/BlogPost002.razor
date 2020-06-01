@@ -1,45 +1,40 @@
 @page "/blogpost002"
 
-<BlogPostTemplate Title="@Constants.Title.BlogPost002">
+<BlogPostTemplate Title="@Constants.Title.BlogPost002" UrlPart="blogpost002" PageIdentifier="002" >
     <BlogPost>
       <p>1. Add a gitpush.bat file to the root of your-username directory with following contents.</p>
-     
-      <pre>
-          <code>
-        SET CurrentDirectory=%~dp0
+      <pre><code class="language-html">
+SET CurrentDirectory=%~dp0
 
-        FOR %%a IN ("%CurrentDirectory:~0,-1%") DO SET ParentCurrentDirectory=%%~dpa
+FOR %%a IN ("%CurrentDirectory:~0,-1%") DO SET ParentCurrentDirectory=%%~dpa
 
-        SET DeploymentFilesDirectory=%CurrentDirectory%build\wwwroot
+SET DeploymentFilesDirectory=%CurrentDirectory%build\wwwroot
 
-        SET GitHubIoDirectory=%ParentCurrentDirectory%your-username.github.io
+SET GitHubIoDirectory=%ParentCurrentDirectory%your-username.github.io
 
-        dotnet publish --configuration Release --output build
+dotnet publish --configuration Release --output build
 
-        robocopy "%DeploymentFilesDirectory%" "%GitHubIoDirectory%" /e /xf "%DeploymentFilesDirectory%"\index.html
+robocopy "%DeploymentFilesDirectory%" "%GitHubIoDirectory%" /e /xf "%DeploymentFilesDirectory%"\index.html
 
-        cd %GitHubIoDirectory%
+cd %GitHubIoDirectory%
 
-        git add .
+git add .
 
-        For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET date=%%c-%%a-%%b)
-        For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (SET time=%%a%%b)
+For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET date=%%c-%%a-%%b)
+For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (SET time=%%a%%b)
 
-        git commit -m "commit-%date%-%time%"
+git commit -m "commit-%date%-%time%"
 
-        git push
+git push
 
-        cd %CurrentDirectory%
+cd %CurrentDirectory%
 
-        exit /b
-            </code>
-        </pre>
+exit /b
+</code></pre>
 
         <p>2. Open a terminal and run the gitpush.bat file.</p>
      
     </BlogPost>
 </BlogPostTemplate>
 
-<br>
 
-<Disqus UrlPart="blogPost002" PageIdentifier="002"></Disqus>
