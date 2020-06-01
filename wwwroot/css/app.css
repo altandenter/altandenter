@@ -176,17 +176,17 @@ app {
 
 /* Styling code blocks blog */
 
-pre {
+/* pre {
     color: #444;
     border: solid 1px #ccc;
-    padding: 1em;
-    line-height: 24px;
+    padding: 1em; 
+    line-height: 16px;
     font-size: 12px;
     font-weight: bold;
-    /* background-image: linear-gradient(#e8e9d7 100%, #eff2ec 50%); */
     background-color: #e8e9d7;
     font-family: Monaco, "Andale Mono", "Courier New", Courier, monospace;
-}
+    margin-bottom: 0px !important;
+} */
 
 /* Styling map component */
 

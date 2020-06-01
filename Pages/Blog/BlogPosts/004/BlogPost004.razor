@@ -1,4 +1,6 @@
 @page "/blogpost004"
+@inject IJSRuntime _jsRuntime
+
 
 <BlogPostTemplate Title="@Constants.Title.BlogPost004">
     <BlogPost>
@@ -11,8 +13,26 @@
         <p>7. Create a folder disqus in the wwwroot folder.</p>
         <p>8. Inside the disqus folder add a file and name it disqus.js.</p>
         <p>9. Replace the contents of the diqus.js file with <a href="https://github.com/altandenter/altandenter/blob/master/Pages/Blog/BlogPosts/004/disqusjs.txt" target="_blank">this code</a>. </p>
+        <p>10. In the head section of your index.html file add line below.</p>
+        <pre><code  class="language-html">&lt;script src="disqus/disqus.js"&gt;&lt;/script&gt;</code></pre>
+        <p>11. Create a Disqus.razor component in your Shared folder.</p>
+        <pre><code class="language-razor">
+            @using Microsoft.JSInterop
+            @inject IJSRuntime JSRuntime
 
+            &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 
-        <p>7. Create a component Disqus.razor in your Shared folder.</p>
+            @code {
+                [Parameter] public string UrlPart { get; set; } = "defaultUrlPart";
+                [Parameter] public string PageIdentifier { get; set; } = "defaulPageIdentifier";
+                protected async override Task OnAfterRenderAsync(bool firstRender)
+                {
+                    await JSRuntime.InvokeVoidAsync(
+                        "disqus.show", "disqus_thread", UrlPart, PageIdentifier);
+                }   
+            }
+        </code></pre> 
     </BlogPost>
+
 </BlogPostTemplate>
+
