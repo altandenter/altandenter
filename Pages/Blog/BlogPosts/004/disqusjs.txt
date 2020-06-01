@@ -1,0 +1,17 @@
+(function () {
+    window.disqus = {
+        show: function (urlPart, pageIdentifier) {
+            var disqus_config = function () {
+                this.page.url = "https://<your-website-address>/" + urlPart;
+                this.page.identifier = pageIdentifier;
+            };
+            var elem = document.getElementById("disqus_thread");
+
+            let d = document, s = d.createElement('script');
+            // REPLACE <your-disqus-src-code> below with the code obtained from DISQUS  
+            s.src = '<your-disqus-src-code>/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    };
+})();
