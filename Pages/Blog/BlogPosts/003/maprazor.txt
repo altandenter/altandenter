@@ -5,7 +5,6 @@
 
 @code {
     public string elementId = $"map-{Guid.NewGuid().ToString("D")}";
-    
     [Parameter] public string CompanyName   { get; set; }
     [Parameter] public string Address   { get; set; }
     [Parameter] public double Latitude  { get; set; }
