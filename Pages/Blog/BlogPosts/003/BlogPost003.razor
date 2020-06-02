@@ -9,9 +9,7 @@
 &lt;script src="leaflet/myAddress.js"&gt;&lt;/script&gt;
 &lt;script src="leaflet/leaflet.js"&gt;&lt;/script&gt; </code></pre>
         <p>4. In the wwwroot/leaflet folder create a file myAddress.js. Paste in the code below.</p>
-        <pre>
-            <code class="language-html">
-(function () {
+        <pre><code class="language-html">(function () {
     var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var tileAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
     window.myAddress = {
@@ -30,9 +28,7 @@
             L.marker([latitude, longitude]).addTo(map).bindPopup('&lt;b&gt;' + companyName + '&lt;/b&gt;&lt;br&gt;' + address).openPopup();
         }
     };
-})();
-            </code>
-        </pre>
+})();</code></pre>
         <p>5. Create a Map.razor component in the Shared folder with the <a href="https://github.com/altandenter/altandenter/blob/master/Pages/Blog/BlogPosts/003/maprazor.txt" target="_blank">following code</a>.</p>
         <p><img src="img/map.png" style="height:auto; width:auto;" ></p>
         <br>
