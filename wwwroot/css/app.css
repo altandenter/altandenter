@@ -194,3 +194,8 @@ app {
     width: 350px;
     height: 350px;
 }
+
+.bloglink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

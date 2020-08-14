@@ -1,11 +1,20 @@
-<div class="alert alert-secondary mt-4" role="alert">
+@inject NavigationManager NavigationManager
+
+<div class="alert alert-secondary mt-4" role="alert" @onclick="NavigateTo">
     <span class="oi oi-paperclip mr-2" aria-hidden="true"></span>
-    <span class="text-nowrap">
-        <a class="text-dark" href="@Href">@Title</a>
-    </span>
+    <span class="bloglink">@Title</span>
+    @* <span class="text-nowrap">
+        <a href="@Href">@Title</a>
+    </span> *@
 </div>
 
 @code {
     [Parameter] public string Title { get; set; }
     [Parameter] public string Href { get; set; }
+
+    private void NavigateTo()
+    {
+      NavigationManager.NavigateTo(Href);
+    }
+
 }
