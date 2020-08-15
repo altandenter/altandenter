@@ -1,9 +1,8 @@
 @page "/blogpost002"
 
 <BlogPostTemplate Title="@Constants.BlogPost001.Title" UrlPart="@Constants.BlogPost002.Href" PageIdentifier="@Constants.BlogPost002.PageIdentifier" >
-
     <BlogPost>
-    <p>1. Create a your-username.github.io repository on GitHub (with default settings).</p>
+    <p>1. Create a your-username.github.io repository on <a href="https://github.com/new" target="_blank">GitHub</a> (keep all the default settings).</p>
     <p>2. In the repository Settings go to the Github Pages section. Choose a Theme. Select Theme and click on Commit changes.</p>
     <p>3. Clone the repository.</p>
     <p>4. Delete the index.md and _config.yml files.</p>
@@ -13,9 +12,9 @@
     <pre><code class="language-html">dotnet new blazorwasm --output your-username --pwa</code></pre>
     <p>7. Add an empty <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.nojekyll" target="_blank">.nojekyll</a> file in the wwwroot folder of the Blazor WASM app.</p>
     <p>8. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.gitattributes" target="_blank">.gitattributes</a> file to the root of the wwwroot folder of the Blazor WASM app with following content: * binary.</p>
-    <p>9. Replace the index.html page with the contents of this <a href="https://github.com/altandenter/altandenter.github.io/blob/master/keep-this-index-file.html" target="_blank">index.html</a> file.</p>
-    <p>10. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/keep-this-404-file.html" target="_blank">404.html Error</a> file.</p>
-    <p>11. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/gitpush.bat" target="_blank">gitpush.bat</a>  file to the root of your-username directory with following contents.</p>
+    <p>9. Replace the contents of the index.html page with the contents of<a href="https://github.com/altandenter/altandenter/blob/master/wwwroot/keep-this-index-file.html" target="_blank">this file</a></p>
+    <p>10. Add a <a href="https://github.com/altandenter/altandenter/blob/master/wwwroot/keep-this-404-file.html" target="_blank">404.html Error </a> file in the wwwroot folder.</p>
+    <p>11. Add a <a href="https://github.com/altandenter/altandenter/blob/master/gitpush.bat" target="_blank">gitpush.bat</a>  file to the root of your-username directory with following contents.</p>
       <pre><code class="language-html">
 set PathCurrentDirectory=%~dp0
 
