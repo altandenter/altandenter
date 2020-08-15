@@ -4,8 +4,8 @@
 
 <BlogPostTemplate Title="@Constants.BlogPost001.Title" UrlPart="@Constants.BlogPost001.Href" PageIdentifier="@Constants.BlogPost001.PageIdentifier" >
     <BlogPost>
-      <p>1. Create your your-username.github.io repository on GitHub.</p>
-      <p>2. In the repository settings go to the Github Pages section. Choose a Theme. Select Theme and commit changes.</p>
+      <p>1. Create a your-username.github.io repository on GitHub (with default settings).</p>
+      <p>2. In the repository Settings go to the Github Pages section. Choose a Theme. Select Theme and click on Commit changes.</p>
       <p>3. Clone the repository.</p>
       <p>4. Delete the index.md and _config.yml files.</p>
       <p>5. Open a terminal window and check your dotnet version. Should be greather or equal to 3.1.300.</p>
@@ -14,8 +14,8 @@
       <pre><code class="language-html">dotnet new blazorwasm --output your-username --pwa</code></pre>
       <p>7. Add an empty .nojekyll file in the root of the repository.</p>
       <p>8. Add a .gitattributes file to the root of the repository with following content: * binary.</p>
-      <p>9. Replace the index.html page with the contents of this <a href="https://github.com/altandenter/altandenter.github.io/blob/master/index.html" target="_blank">index.html</a> file.</p>
-      <p>10. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/404.html" target="_blank">404.html Error</a> file.</p>
+      <p>9. Replace the index.html page with the contents of this <a href="https://github.com/altandenter/altandenter.github.io/blob/master/keep-this-index-file.html" target="_blank">index.html</a> file.</p>
+      <p>10. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/keep-this-404-file.html" target="_blank">404.html Error</a> file.</p>
       <p>11. Change Directory into your-username directory and generate deployment files.</p>
       <pre><code class="language-html">dotnet publish --configuration Release --output build</code></pre>
       <p>12. Copy the files from the build\wwwroot directory into your-username.github.io directory.</p>

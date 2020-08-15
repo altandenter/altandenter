@@ -3,38 +3,53 @@
 <BlogPostTemplate Title="@Constants.BlogPost001.Title" UrlPart="@Constants.BlogPost002.Href" PageIdentifier="@Constants.BlogPost002.PageIdentifier" >
 
     <BlogPost>
-      <p>1. Add a gitpush.bat file to the root of your-username directory with following contents.</p>
+    <p>1. Create a your-username.github.io repository on GitHub (with default settings).</p>
+    <p>2. In the repository Settings go to the Github Pages section. Choose a Theme. Select Theme and click on Commit changes.</p>
+    <p>3. Clone the repository.</p>
+    <p>4. Delete the index.md and _config.yml files.</p>
+    <p>5. Open a command prompt and change into the parent directory</p>
+    <pre><code class="language-html">CD ..</code></pre>
+    <p>6. Run the command below to create a new Blazor Webassembly app.</p>
+    <pre><code class="language-html">dotnet new blazorwasm --output your-username --pwa</code></pre>
+    <p>7. Add an empty <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.nojekyll" target="_blank">.nojekyll</a> file in the wwwroot folder of the Blazor WASM app.</p>
+    <p>8. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.gitattributes" target="_blank">.gitattributes</a> file to the root of the wwwroot folder of the Blazor WASM app with following content: * binary.</p>
+    <p>9. Replace the index.html page with the contents of this <a href="https://github.com/altandenter/altandenter.github.io/blob/master/keep-this-index-file.html" target="_blank">index.html</a> file.</p>
+    <p>10. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/keep-this-404-file.html" target="_blank">404.html Error</a> file.</p>
+    <p>11. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/gitpush.bat" target="_blank">gitpush.bat</a>  file to the root of your-username directory with following contents.</p>
       <pre><code class="language-html">
-SET CurrentDirectory=%~dp0
+set PathCurrentDirectory=%~dp0
 
-FOR %%a IN ("%CurrentDirectory:~0,-1%") DO SET ParentCurrentDirectory=%%~dpa
+for %%I in (.) do set CurrentDirectory=%%~nxI
 
-SET DeploymentFilesDirectory=%CurrentDirectory%build\wwwroot
+for %%a IN ("%PathCurrentDirectory:~0,-1%") DO set PathParentCurrentDirectory=%%~dpa
 
-SET GitHubIoDirectory=%ParentCurrentDirectory%your-username.github.io
+set DeploymentFilesDirectory=%PathCurrentDirectory%build\wwwroot
+
+set GitHubIoDirectory=%PathParentCurrentDirectory%%CurrentDirectory%.github.io
 
 dotnet publish --configuration Release --output build
 
-robocopy "%DeploymentFilesDirectory%" "%GitHubIoDirectory%" /e /xf "%DeploymentFilesDirectory%"\index.html
+robocopy "%DeploymentFilesDirectory%" "%GitHubIoDirectory%" /e
 
 cd %GitHubIoDirectory%
 
 git add .
 
-For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET date=%%c-%%a-%%b)
-For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (SET time=%%a%%b)
+for /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set date=%%c-%%a-%%b)
+for /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set time=%%a%%b)
 
 git commit -m "commit-%date%-%time%"
 
 git push
 
-cd %CurrentDirectory%
+cd %PathCurrentDirectory%
 
 exit /b
 </code></pre>
 
-        <p>2. Open a terminal and run the gitpush.bat file.</p>
-     
+    <p>12. Open a terminal and run the gitpush.bat file to push your Blazor app to the GitHub repository.</p>
+    <pre><code class="language-html">./gitpush.bat</code></pre>
+    <p>13. Open a browser and navigate to <a href="">https://your-username.github.io/</a>.</p>
     </BlogPost>
 </BlogPostTemplate>
 

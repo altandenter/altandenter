@@ -1,12 +1,14 @@
 @ECHO OFF
 
-SET CurrentDirectory=%~dp0
+set PathCurrentDirectory=%~dp0
 
-FOR %%a IN ("%CurrentDirectory:~0,-1%") DO SET ParentCurrentDirectory=%%~dpa
+for %%I in (.) do set CurrentDirectory=%%~nxI
 
-set DeploymentFilesDirectory=%CurrentDirectory%build\wwwroot
+for %%a IN ("%PathCurrentDirectory:~0,-1%") DO set PathParentCurrentDirectory=%%~dpa
 
-set GitHubIoDirectory=%ParentCurrentDirectory%altandenter.github.io
+set DeploymentFilesDirectory=%PathCurrentDirectory%build\wwwroot
+
+set GitHubIoDirectory=%PathParentCurrentDirectory%%CurrentDirectory%.github.io
 
 dotnet publish --configuration Release --output build
 
@@ -16,13 +18,13 @@ cd %GitHubIoDirectory%
 
 git add .
 
-For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET date=%%c-%%a-%%b)
-For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (SET time=%%a%%b)
+for /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set date=%%c-%%a-%%b)
+for /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set time=%%a%%b)
 
 git commit -m "commit-%date%-%time%"
 
 git push
 
-cd %CurrentDirectory%
+cd %PathCurrentDirectory%
 
 exit /b
