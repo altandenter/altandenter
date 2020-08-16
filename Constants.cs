@@ -37,7 +37,9 @@ namespace AltAndEnter
 
     public static class BlogPost005
     {
-      // public static string Title = "How to add Disqus to your Blazor Webassembly App?";
+      public const string Title = "How to solve issue “Failed to find a valid digest in the ‘integrity’ attribute”? on GitHubPages";
+      public const string Href = "blogpost005";
+      public const string PageIdentifier = "005";
     }
 
   }

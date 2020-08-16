@@ -3,16 +3,17 @@
 <BlogPostTemplate Title="@Constants.BlogPost002.Title" UrlPart="@Constants.BlogPost002.Href" PageIdentifier="@Constants.BlogPost002.PageIdentifier" >
     <BlogPost>
     <p>1. Create a &lt;your-username&gt;.github.io repository on <a href="https://github.com/new" target="_blank">GitHub</a> (keep all the default settings).</p>
-    <p>2. In the repository <strong>Settings</strong> tab go to the <strong>Github Pages section</strong>. Click on <strong>Choose a theme</strong>. Click on <strong>Select theme</strong> and click on <strong>Commit changes</strong>.</p>
-    <p>3. Clone the repository into your computer.</p>
+    <p>2. In the repository <strong>Settings</strong> tab go to the <strong>Github Pages</strong> section. Click on <strong>Choose a theme</strong>. Click on <strong>Select theme</strong> and click on <strong>Commit changes</strong>.</p>
+    <p>3. Open a command prompt and clone the repository into your computer by running the command below.</p>
+    <pre><code class="language-html">git clone https://github.com/&lt;your-username&gt;/&lt;your-username&gt;.github.io.git</code></pre>
     <p>4. Delete the index.md and _config.yml files.</p>
     <p>5. Open a command prompt in the parent directory of &lt;your-username&gt;.github.io directory.</p>
-    <p>6. Create a new Blazor Webassembly app by running the command below.</p>
+    <p>6. Run the command below to create a new Blazor WASM app.</p>
     <pre><code class="language-html">dotnet new blazorwasm --output &lt;your-username&gt; --pwa</code></pre>
-    <p>7. Add an empty <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.nojekyll" target="_blank">.nojekyll</a> file to the wwwroot folder of the newly created Blazor WASM app.</p>
-    <p>8. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.gitattributes" target="_blank">.gitattributes</a> file to the wwwroot folder of the Blazor WASM app with following content: * binary.</p>
+    <p>7. Add an empty <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.nojekyll" target="_blank">.nojekyll</a> file to the <strong>wwwroot</strong> folder of the newly created Blazor WASM app.</p>
+    <p>8. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.gitattributes" target="_blank">.gitattributes</a> file to the <strong>wwwroot</strong> folder of the Blazor WASM app with following content: * binary.</p>
     <p>9. Replace the contents of the index.html page with the contents of <a href="https://raw.githubusercontent.com/altandenter/altandenter/master/wwwroot/keep-this-index-file.html" target="_blank">this file</a></p>
-    <p>10. Add a <a href="https://raw.githubusercontent.com/altandenter/altandenter/master/wwwroot/keep-this-404-file.html" target="_blank">404.html</a> file to the wwwroot folder.</p>
+    <p>10. Add a <a href="https://raw.githubusercontent.com/altandenter/altandenter/master/wwwroot/keep-this-404-file.html" target="_blank">404.html</a> file to the <strong>wwwroot</strong> folder.</p>
     <p>11. Add a <a href="https://raw.githubusercontent.com/altandenter/altandenter/master/gitpush.bat" target="_blank">gitpush.bat</a>  file to the root of &lt;your-username&gt; directory with following contents.</p>
       <pre><code class="language-html">
 set PathCurrentDirectory=%~dp0
