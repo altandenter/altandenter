@@ -3,18 +3,17 @@
 <BlogPostTemplate Title="@Constants.BlogPost002.Title" UrlPart="@Constants.BlogPost002.Href" PageIdentifier="@Constants.BlogPost002.PageIdentifier" >
     <BlogPost>
     <p>1. Create a &lt;your-username&gt;.github.io repository on <a href="https://github.com/new" target="_blank">GitHub</a> (keep all the default settings).</p>
-    <p>2. In the repository Settings go to the Github Pages section. Choose a Theme. Select Theme and click on Commit changes.</p>
+    <p>2. In the repository <strong>Settings</strong> tab go to the Github Pages section. Click on <strong>Choose a theme</strong>. Click on <strong>Select theme</strong> and click on <strong>Commit changes</strong>.</p>
     <p>3. Clone the repository into your computer.</p>
     <p>4. Delete the index.md and _config.yml files.</p>
-    <p>5. Open a command prompt in the &lt;your-username&gt;.github.io directory and change into the parent directory</p>
-    <pre><code class="language-html">CD ..</code></pre>
+    <p>5. Open a command prompt in the parent directory of &lt;your-username&gt;.github.io directory.</p>
     <p>6. Create a new Blazor Webassembly app by running the command below.</p>
     <pre><code class="language-html">dotnet new blazorwasm --output &lt;your-username&gt; --pwa</code></pre>
     <p>7. Add an empty <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.nojekyll" target="_blank">.nojekyll</a> file in the wwwroot folder of the Blazor WASM app.</p>
-    <p>8. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.gitattributes" target="_blank">.gitattributes</a> file to the root of the wwwroot folder of the Blazor WASM app with following content: * binary.</p>
-    <p>9. Replace the contents of the index.html page with the contents of <a href="https://github.com/altandenter/altandenter/blob/master/wwwroot/keep-this-index-file.html" target="_blank">this file</a></p>
-    <p>10. Add a <a href="https://github.com/altandenter/altandenter/blob/master/wwwroot/keep-this-404-file.html" target="_blank">404.html Error </a> file in the wwwroot folder.</p>
-    <p>11. Add a <a href="https://github.com/altandenter/altandenter/blob/master/gitpush.bat" target="_blank">gitpush.bat</a>  file to the root of your-username directory with following contents.</p>
+    <p>8. Add a <a href="https://github.com/altandenter/altandenter.github.io/blob/master/.gitattributes" target="_blank">.gitattributes</a> file in the wwwroot folder of the Blazor WASM app with following content: * binary.</p>
+    <p>9. Replace the contents of the index.html page with the contents of <a href="https://raw.githubusercontent.com/altandenter/altandenter/master/wwwroot/keep-this-index-file.html" target="_blank">this file</a></p>
+    <p>10. Add a <a href="https://raw.githubusercontent.com/altandenter/altandenter/master/wwwroot/keep-this-404-file.html" target="_blank">404.html Error </a> file in the wwwroot folder.</p>
+    <p>11. Add a <a href="https://raw.githubusercontent.com/altandenter/altandenter/master/gitpush.bat" target="_blank">gitpush.bat</a>  file to the root of &lt;your-username&gt; directory with following contents.</p>
       <pre><code class="language-html">
 set PathCurrentDirectory=%~dp0
 
@@ -46,9 +45,9 @@ cd %PathCurrentDirectory%
 exit /b
 </code></pre>
 
-    <p>12. Open a terminal and run the gitpush.bat file to push your Blazor app to the GitHub repository.</p>
-    <pre><code class="language-html">./gitpush.bat</code></pre>
-    <p>13. Open a browser and navigate to <a href="">https://your-username.github.io/</a>.</p>
+    <p>12. Open a terminal in the &lt;your-username&gt; directory and run the gitpush.bat file to push your Blazor app to the GitHub repository.</p>
+    <pre><code class="language-html">gitpush.bat</code></pre>
+    <p>13. Open a browser and navigate to <a href="">https://&lt;your-username&gt;.github.io/</a>.</p>
     </BlogPost>
 </BlogPostTemplate>
 
